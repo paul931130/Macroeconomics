@@ -1337,3 +1337,264 @@ svg text {
     grid-template-columns: 1fr;
   }
 }
+
+/* ──────────────────────────────────────────────────────────
+   PAST EXAMS SECTION
+   ────────────────────────────────────────────────────────── */
+
+/* Year summary banner */
+.exam-year-summary {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.year-summary-card {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 16px 20px;
+  background: rgba(255, 248, 234, 0.72);
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.year-summary-card strong {
+  font: 900 1.8rem/1 var(--font-display);
+}
+
+.year-summary-card span {
+  font-size: 0.88rem;
+  color: rgba(16, 24, 32, 0.62);
+  font-weight: 700;
+}
+
+.year-summary-card.year-2020 {
+  border-left: 5px solid var(--blue);
+}
+
+.year-summary-card.year-2022 {
+  border-left: 5px solid var(--clay);
+}
+
+.year-overlap-badge {
+  display: grid;
+  place-items: center;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: var(--amber);
+  color: var(--ink);
+  text-align: center;
+}
+
+.year-overlap-badge span {
+  font: 900 1.9rem/1 var(--font-display);
+}
+
+.year-overlap-badge small {
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+
+/* Exam grid */
+.exam-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+/* Exam card base */
+.exam-card {
+  border: 1px solid rgba(16, 24, 32, 0.15);
+  border-radius: var(--radius);
+  padding: 22px;
+  background: rgba(255, 248, 234, 0.78);
+  box-shadow: 0 12px 40px rgba(16, 24, 32, 0.07);
+  border-left-width: 5px;
+}
+
+.exam-card.is-repeat {
+  border-left-color: var(--amber);
+  background:
+    linear-gradient(135deg, rgba(226, 167, 59, 0.06), rgba(255, 248, 234, 0.88));
+}
+
+.exam-card.year-only-2020 {
+  border-left-color: var(--blue);
+}
+
+.exam-card.year-only-2022 {
+  border-left-color: var(--clay);
+}
+
+/* Card header row */
+.exam-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.exam-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.repeat-badge {
+  border-radius: 999px;
+  padding: 5px 10px;
+  background: var(--amber);
+  color: var(--ink);
+  font: 800 0.78rem var(--font-body);
+  letter-spacing: 0.04em;
+}
+
+.exam-year-badge {
+  border-radius: 999px;
+  padding: 5px 10px;
+  font: 700 0.8rem var(--font-body);
+}
+
+.exam-year-badge.year-2020 {
+  background: rgba(31, 111, 139, 0.12);
+  color: var(--blue);
+}
+
+.exam-year-badge.year-2022 {
+  background: rgba(183, 95, 53, 0.12);
+  color: var(--clay);
+}
+
+.exam-meta {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.exam-ch,
+.exam-type-tag {
+  border-radius: 999px;
+  padding: 4px 9px;
+  font: 700 0.75rem var(--font-body);
+  border: 1px solid var(--line);
+  background: rgba(244, 234, 216, 0.5);
+}
+
+/* Question text */
+.exam-q-text {
+  margin: 0 0 14px;
+  line-height: 1.7;
+  font-size: 0.97rem;
+  color: var(--ink);
+}
+
+/* Answer skeleton */
+.exam-skeleton {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+  margin-top: 0;
+}
+
+.exam-skeleton summary {
+  cursor: pointer;
+  font: 700 0.88rem var(--font-body);
+  color: var(--blue);
+  user-select: none;
+  list-style: none;
+}
+
+.exam-skeleton summary::marker,
+.exam-skeleton summary::-webkit-details-marker {
+  display: none;
+}
+
+.exam-skeleton[open] summary {
+  color: var(--clay);
+  margin-bottom: 10px;
+}
+
+.exam-skeleton ol {
+  margin: 0;
+  padding-left: 1.4rem;
+}
+
+.exam-skeleton li {
+  padding: 4px 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  border-bottom: 1px dotted rgba(16, 24, 32, 0.1);
+}
+
+.exam-skeleton li:last-child {
+  border-bottom: none;
+}
+
+/* ──────────────────────────────────────────────────────────
+   TYPOGRAPHY IMPROVEMENTS
+   ────────────────────────────────────────────────────────── */
+
+/* Better line-height for Chinese text */
+.case-panel p,
+.case-panel li,
+.assignment-card p,
+.chapter-panel li,
+.synthesis-card p,
+.synthesis-card li {
+  line-height: 1.75;
+}
+
+/* Better formula code display */
+.formula-card code {
+  background: rgba(16, 24, 32, 0.05);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+/* Section eyebrow refinement */
+.eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+}
+
+/* Hint text for section titles */
+.section-hint {
+  font-size: 0.85rem;
+  color: rgba(16, 24, 32, 0.5);
+}
+
+/* ──────────────────────────────────────────────────────────
+   RESPONSIVE
+   ────────────────────────────────────────────────────────── */
+
+@media (max-width: 1040px) {
+  .exam-grid {
+    grid-template-columns: 1fr;
+  }
+  .exam-year-summary {
+    grid-template-columns: 1fr auto 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .exam-grid {
+    grid-template-columns: 1fr;
+  }
+  .exam-year-summary {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  .year-summary-card {
+    width: 100%;
+  }
+  .exam-header {
+    flex-direction: column;
+  }
+}

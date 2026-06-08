@@ -1044,6 +1044,178 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+
+
+/* ============================================================
+   PAST EXAM DATA — 2020 & 2022 with cross-year flags
+   ============================================================ */
+
+const pastExams = [
+  // ── CROSS-YEAR REPEATS ★★ highest priority ─────────────
+  {
+    id:"q-is-balanced-budget",years:["2020","2022"],
+    refs:{"2020":"Q1 · 8pts","2022":"Q3 · 8pts"},
+    chapter:"CH10/11",type:"計算＋申論",
+    text:"According to Keynesian-cross analysis, MPC = 0.6, G and T both increased by 100. IS curve shifts to _____ by _____. Explain why eventual ΔY < IS shift.",
+    answer:["G multiplier = 1/(1-0.6) = 2.5 → ΔY_G = +250","T multiplier = -0.6/(1-0.6) = -1.5 → ΔY_T = -150","Balanced-budget multiplier = 1 → IS 水平右移 100","IS-LM 中 r 上升排擠投資（crowding out）→ 最終 ΔY < 100"]
+  },
+  {
+    id:"q-sacrifice-ratio",years:["2020","2022"],
+    refs:{"2020":"Q2 · 8pts","2022":"Q4 · 8pts"},
+    chapter:"CH13",type:"計算＋申論",
+    text:"Sacrifice ratio = 4. Fed reduces inflation from 10% to 5%. GDP loss = ___% of GDP. Unemployment change = ___ (Okun's law). Why actual sacrifice ratio may be lower when announcements are credible?",
+    answer:["通膨下降 5 pp，GDP loss = 5 × 4 = 20% of one year's GDP","Okun's law：1 pp 失業缺口 ≈ 2% GDP loss → 累積失業缺口 = 10 percentage-point-years","可信宣示 → 民眾降低 πe → Phillips curve 下移","相同通膨下降所需失業代價更小 → 犧牲率實際更低"]
+  },
+  {
+    id:"q-trade-war",years:["2020","2022"],
+    refs:{"2020":"Q3 · 8pts","2022":"Q5 · 10pts"},
+    chapter:"CH12",type:"申論",
+    text:"Why do some economists argue that the US-China trade war might harm the US more than China?",
+    answer:["浮動匯率下：關稅使 IS* 右移，但 e↑（美元升值），出口↓抵銷 NX 改善","Y 最終不變，美國消費者承擔更高物價，出口商因升值受損","貿易夥伴可調整生產結構，長期損失未必更大","結論：保護主義在浮動匯率下無法提升 NX，反傷本國貿易利益"]
+  },
+  {
+    id:"q-adas-g-reduction",years:["2020","2022"],
+    refs:{"2020":"Q4 · 10pts","2022":"Q6 · 10pts"},
+    chapter:"CH9/13",type:"圖形＋申論",
+    text:"Economy at natural rate. G reduction produces budget surplus. Use AD-AS (Ch13 SRAS) to show short-run and long-run effects on P and Y. Label: axes, curves, initial eq., shift directions, terminal eq.",
+    answer:["初始：均衡在 LRAS 上 (Ybar, P₀)","G↓ → AD 左移：短期 Y↓，P↓（E₁）","長期：P↓ 使 Pe↓，SRAS 下移（向右）","終點 E₂：Y 回 Ybar，P₂ < P₁ < P₀","五要素：Y/P 軸、LRAS 垂直、SRAS/AD 斜線、初/終均衡箭頭"]
+  },
+  {
+    id:"q-beggar-illiteracy",years:["2020","2022"],
+    refs:{"2020":"Q8 · 12pts","2022":"Q7 · 16pts"},
+    chapter:"CH12",type:"申論",
+    text:"Expansionary monetary (floating) and fiscal (fixed) are 'beggar-thy-neighbour'. Trade policy under both regimes is 'economic illiteracy'. Explain and illustrate.",
+    answer:["浮動＋貨幣擴張：LM* 右移 → e↓ 貶值 → NX↑ Y↑，以貿易夥伴出口損失為代價","固定＋財政擴張：IS* 右移，央行買外幣維持 e → M↑ → Y↑，夥伴進口增加（有爭議性 beggar-thy-neighbour）","浮動關稅（illiteracy）：IS* 右移 → e↑ → NX 不改善，進出口雙降，損失貿易利益","固定關稅（illiteracy）：IS* 右移 → 央行擴張 M → Y↑ 但機制非 NX，貿易夥伴受損"]
+  },
+  {
+    id:"q-small-open-reelection",years:["2020","2022"],
+    refs:{"2020":"Q9 · 10pts","2022":"Q8 · 10pts"},
+    chapter:"CH12",type:"申論＋圖形",
+    text:"Small open economy, floating rate. President wants to raise output in short run to win reelection. (A) Recommend monetary or fiscal? Explain. (B) Illustrate with Mundell-Fleming graph.",
+    answer:["建議：擴張性貨幣政策","浮動匯率下財政政策：IS* 右移 → e↑ 升值 → NX↓，Y 不變（被完全排擠）","貨幣政策：LM* 右移 → e↓ 貶值 → NX↑，Y↑（有效）","圖形：IS* 下傾；LM* 垂直；LM* 右移；均衡由 E₁ → E₂：e↓，Y↑"]
+  },
+  {
+    id:"q-longrun-sideeffects",years:["2020","2022"],
+    refs:{"2020":"Q10 · 8pts","2022":"Q9 · 10pts"},
+    chapter:"CH8/9/13",type:"申論",
+    text:"Policy makers use expansionary fiscal/monetary policy to combat recessions. Explain possible long-run side-effects of both interventions.",
+    answer:["財政擴張：crowding out 排擠私人投資，儲蓄↓，Solow k*↓，長期每人產出降低","持續赤字：債務累積，利息支出擴大，可能削弱未來政策空間","貨幣擴張：長期主要推升 P，不永久提高 Y（古典二分法）","高貨幣成長易使 πe↑，Phillips curve 上移，未來抑制通膨需更高犧牲率"]
+  },
+
+  // ── 2020 ONLY ──────────────────────────────────────────────
+  {
+    id:"q-2020-cb-announcement",years:["2020"],
+    refs:{"2020":"Q5 · 8pts"},
+    chapter:"CH10/13",type:"申論",
+    text:"When the CB chairman announces 'whatever necessary' to reduce inflation: (A) what policy? (B) What happens to nominal interest rate short-run vs long-run?",
+    answer:["政策：貨幣緊縮，M↓ 或提高政策利率 → LM 左移","短期（liquidity preference）：M↓ → M/P↓ → LM 左移 → 名目利率 i↑","長期（Fisher effect）：可信政策使 πe↓；Fisher equation i = r + πe → i 最終下降","可信宣示讓 πe 快速下調，名目利率不必長期維持高位，降低緊縮成本"]
+  },
+  {
+    id:"q-2020-mobile-payments",years:["2020"],
+    refs:{"2020":"Q6 · 10pts"},
+    chapter:"CH9/11",type:"圖形＋申論",
+    text:"Use the AD-AS model (Ch9) to explain impacts of widespread mobile payments on Y and P in short-run and long-run.",
+    answer:["機制：行動支付降低貨幣需求 L(r,Y) 或提高 V（MV=PY）→ LM 右移 → AD 右移","短期（Ch9 AD-AS）：AD 右移在固定 SRAS 下 → Y↑，P↑","長期（Ch13 SRAS）：P↑ → Pe↑ → SRAS 上移 → Y 回 Ybar，P 進一步上升","終點：Y = Ybar，P 更高（純貨幣現象，同 M↑ 長期效果）"]
+  },
+  {
+    id:"q-2020-policy-mix",years:["2020"],
+    refs:{"2020":"Q7 · 10pts"},
+    chapter:"CH11",type:"圖形＋申論",
+    text:"How can the CB keep economy from recession when budget deficit is reduced? Use IS-LM to show both policies. Label fully.",
+    answer:["財政緊縮（G↓ or T↑）：IS 左移，Y 有下降壓力","央行貨幣擴張：M↑ → LM 右移，抵消 IS 左移對 Y 的影響","結果：Y ≈ 不變，r 明確下降（IS 左移 + LM 右移 → r 雙重下壓）","圖形：IS 左移 + LM 右移；新均衡 Y 維持，r 下降；標五項要素"]
+  },
+  {
+    id:"q-2020-avg-inflation",years:["2020"],
+    refs:{"2020":"Q11 · 8pts"},
+    chapter:"CH13",type:"申論",
+    text:"In 2020 the Fed changed its target from 2% to 'average of 2%'. What are possible reasons and arguments for this modification?",
+    answer:["理由一：避免通膨未達 2% 就過早升息（2017-18 教訓），減少緊縮風險","理由二：零利率下限環境：較高 πe 可降低實質利率（r = i - πe），擴大政策空間","理由三：補償過去長期低於 2% 的通膨，重錨市場長期通膨預期","風險：若市場認為 Fed 容忍高通膨，πe 脫錨，未來成本更高"]
+  },
+
+  // ── 2022 ONLY ──────────────────────────────────────────────
+  {
+    id:"q-2022-solow-calc",years:["2022"],
+    refs:{"2022":"Q1 · 8pts"},
+    chapter:"CH8",type:"計算",
+    text:"Solow model: y = k^(1/2), δ = 2.5%, n = 1%, g = 1.5%, s = 20%. Find steady-state capital per effective worker k*.",
+    answer:["穩態：s·f(k) = (δ+n+g)·k → 0.2√k = 0.05k","令 x = √k：0.2x = 0.05x² → x = 4 → k* = 16","驗算：0.2×4 = 0.8 = 0.05×16 ✓；y* = √16 = 4","答：k* = 16，y* = 4"]
+  },
+  {
+    id:"q-2022-solow-graph",years:["2022"],
+    refs:{"2022":"Q2 · 10pts"},
+    chapter:"CH8",type:"圖形＋申論",
+    text:"Use Solow model to illustrate permanent government deficit reduction impact on steady-state k and y. Label fully and explain why growth rates of real wage and output per worker are equal at new steady state.",
+    answer:["赤字↓ → 國民儲蓄率 s↑ → s·f(k) 曲線上移","(δ+n+g)k 不變；新穩態 k₂* > k₁*，y₂* > y₁*","過渡期：k 持續累積，y 上升；到達新穩態後停止","新穩態：每有效工人變數固定；每人產出 & real wage 成長率均 = g（技術進步率），因此相同"]
+  },
+  {
+    id:"q-2022-fed-rates",years:["2022"],
+    refs:{"2022":"Q10 · 10pts"},
+    chapter:"CH11/13",type:"申論",
+    text:"The Federal Reserve raised interest rates 3 times this year. Explain and illustrate the causes and effects of such action.",
+    answer:["原因：通膨高於 2%，πe 有脫錨風險，就業市場過熱","機制（IS-LM）：政策利率↑ → LM 左移 → r↑，Y↓；AD 左移","短期效果：Y↓，P↓，失業可能上升，Phillips curve 上失業缺口打開","長期（若可信）：πe↓ → Phillips curve 下移；Fisher effect 使名目利率長期可能低於緊縮峰值"]
+  }
+];
+
+let activeExamFilter = "cross";
+
+function renderExamFilters() {
+  const examFilters = document.querySelector("#examFilters");
+  if (!examFilters) return;
+  const opts = [
+    { key:"cross", label:"★★ 跨年重題" },
+    { key:"all",   label:"全部" },
+    { key:"2020",  label:"2020 完整" },
+    { key:"2022",  label:"2022 完整" }
+  ];
+  examFilters.innerHTML = opts.map(({ key, label }) =>
+    `<button class="pill ${key === activeExamFilter ? "active" : ""}" data-exam-filter="${key}" type="button">${label}</button>`
+  ).join("");
+
+  document.querySelectorAll("[data-exam-filter]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      activeExamFilter = btn.dataset.examFilter;
+      renderExamFilters();
+      renderExams();
+    });
+  });
+}
+
+function renderExams() {
+  const examGrid = document.querySelector("#examGrid");
+  if (!examGrid) return;
+  const visible = activeExamFilter === "cross"
+    ? pastExams.filter((q) => q.years.length > 1)
+    : activeExamFilter === "all"
+      ? pastExams
+      : pastExams.filter((q) => q.years.includes(activeExamFilter));
+
+  examGrid.innerHTML = visible.map((q) => {
+    const isRepeat = q.years.length > 1;
+    const yearBadges = q.years.map((y) =>
+      `<span class="exam-year-badge year-${y}">${q.refs[y]}</span>`
+    ).join("");
+    const answerItems = q.answer.map((a) => `<li>${a}</li>`).join("");
+    return `
+      <article class="exam-card${isRepeat ? " is-repeat" : " year-only-"+q.years[0]}">
+        <div class="exam-header">
+          <div class="exam-badges">
+            ${isRepeat ? '<span class="repeat-badge">★★ 跨年重題</span>' : ""}
+            ${yearBadges}
+          </div>
+          <div class="exam-meta">
+            <span class="exam-ch">${q.chapter}</span>
+            <span class="exam-type-tag">${q.type}</span>
+          </div>
+        </div>
+        <p class="exam-q-text">${q.text}</p>
+        <details class="exam-skeleton">
+          <summary>作答骨架 ▾</summary>
+          <ol>${answerItems}</ol>
+        </details>
+      </article>`;
+  }).join("");
+}
+
 renderChapters();
 renderPolicies();
 renderAssignment();
@@ -1053,6 +1225,10 @@ renderFormulaGrid();
 renderCardFilters();
 renderCard();
 renderChecklist();
+renderExamFilters();
+renderExams();
+renderExamFilters();
+renderExams();
 
 // Scroll-spy: highlight active nav link as user scrolls
 (function initScrollSpy() {
