@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>總經期末 Study Map — CH9–13</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="grain"></div>
+
+    <!-- HEADER -->
+    <header class="hero">
+      <nav class="topbar" aria-label="主導覽">
+        <a href="#map">章節地圖</a>
+        <a href="#diagrams">模型圖解</a>
+        <a href="#matrix">政策矩陣</a>
+        <a href="#synthesis">整合地圖</a>
+        <a href="#cases">CASE</a>
+        <a href="#assignment">Assignment</a>
+        <a href="#drill">考古練習</a>
+        <a href="#sprint">48h 衝刺</a>
+        <a href="#search">搜尋</a>
+      </nav>
+
+      <section class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Macroeconomics Final · CH9–13</p>
+          <h1>總經期末<br>戰術地圖</h1>
+          <p class="lead">把講義、CASE、Assignment 3、2020/2022 考古題整理成一張互動式備考地圖。目標不是背長文，而是快速判斷「模型、曲線、方向、長短期」。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#drill">開始練考題</a>
+            <button class="button ghost" id="formulaBtn" type="button">公式抽屜</button>
+            <button class="button ghost" id="focusBtn" type="button">專注模式</button>
+            <button class="button ghost" id="printBtn" type="button">列印速查</button>
+          </div>
+        </div>
+
+        <aside class="score-card" aria-label="備考優先度">
+          <span class="stamp">Priority</span>
+          <div class="score-row"><strong>5</strong><span>核心模型</span></div>
+          <div class="score-row"><strong>21</strong><span>Assignment 題</span></div>
+          <div class="score-row"><strong>2</strong><span>期末考古題</span></div>
+          <p>最高權重：IS-LM、Mundell-Fleming、AD-AS、Phillips curve、Solow 外溢題。</p>
+        </aside>
+      </section>
+
+      <!-- Exam hot-zone strip embedded in hero -->
+      <div class="radar-strip" id="dashboard" aria-label="期末考熱區">
+        <article class="radar-card hot"><span>01</span><h3>Keynesian Cross</h3><p>乘數、存貨、balanced-budget multiplier。考古題反覆出。</p></article>
+        <article class="radar-card hot"><span>02</span><h3>IS-LM</h3><p>財政/貨幣政策、crowding out、從 IS-LM 推導 AD。</p></article>
+        <article class="radar-card warm"><span>03</span><h3>Mundell-Fleming</h3><p>浮動/固定匯率下政策效果，一定要背政策矩陣。</p></article>
+        <article class="radar-card warm"><span>04</span><h3>AD-AS / SRAS</h3><p>短期衝擊與長期價格預期調整，圖形標示要完整。</p></article>
+        <article class="radar-card cool"><span>05</span><h3>Phillips Curve</h3><p>犧牲率、可信政策、通膨預期與供給衝擊。</p></article>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ① CHAPTER MAP -->
+      <section class="section" id="map" aria-labelledby="map-title">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">Chapter Map</p>
+            <h2 id="map-title">章節視覺地圖</h2>
+          </div>
+          <span class="section-hint">點擊左側章節查看觀念與考點</span>
+        </div>
+        <div class="chapter-layout">
+          <div class="chapter-list" id="chapterList" role="tablist" aria-label="章節選擇"></div>
+          <article class="chapter-panel" id="chapterPanel" role="tabpanel"></article>
+        </div>
+      </section>
+
+      <!-- ② VISUAL MODELS -->
+      <section class="section diagrams" id="diagrams" aria-labelledby="diagram-title">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">Visual Models</p>
+            <h2 id="diagram-title">四張必會圖</h2>
+          </div>
+          <span class="section-hint">確認每條曲線的標示方向與移動邏輯</span>
+        </div>
+        <div class="diagram-grid">
+          <article class="model-card">
+            <h3>IS-LM 財政擴張</h3>
+            <svg viewBox="0 0 320 220" role="img" aria-label="IS-LM 財政擴張圖">
+              <line class="axis" x1="44" y1="178" x2="292" y2="178"/>
+              <line class="axis" x1="44" y1="178" x2="44" y2="30"/>
+              <text x="287" y="201">Y</text><text x="20" y="38">r</text>
+              <path class="curve blue" d="M58 150 C115 120 170 90 255 55"/>
+              <path class="curve amber" d="M63 65 C125 92 182 122 252 158"/>
+              <path class="curve amber dashed" d="M95 58 C157 85 214 115 284 151"/>
+              <circle class="point" cx="145" cy="103" r="5"/>
+              <circle class="point" cx="187" cy="96" r="5"/>
+              <text x="58" y="58">LM</text><text x="238" y="164">IS1</text><text x="263" y="144">IS2</text>
+            </svg>
+            <p>G 上升使 IS 右移，Y 上升、r 上升；r 上升排擠投資，所以 Y 增加小於 Keynesian cross shift。</p>
+          </article>
+
+          <article class="model-card">
+            <h3>AD-AS 政府支出下降</h3>
+            <svg viewBox="0 0 320 220" role="img" aria-label="AD-AS 圖">
+              <line class="axis" x1="44" y1="178" x2="292" y2="178"/>
+              <line class="axis" x1="44" y1="178" x2="44" y2="30"/>
+              <text x="287" y="201">Y</text><text x="20" y="38">P</text>
+              <line class="curve red" x1="183" y1="34" x2="183" y2="178"/>
+              <path class="curve amber" d="M62 58 C123 82 183 111 266 160"/>
+              <path class="curve amber dashed" d="M35 70 C95 95 155 124 239 173"/>
+              <path class="curve blue" d="M64 158 C132 123 210 88 276 55"/>
+              <path class="curve blue dashed" d="M88 176 C151 138 225 102 290 69"/>
+              <text x="190" y="47">LRAS</text>
+              <text x="245" y="59">SRAS1</text><text x="230" y="90">SRAS2</text>
+              <text x="244" y="166">AD1</text><text x="205" y="177">AD2</text>
+            </svg>
+            <p>G 下降使 AD 左移，短期 Y 與 P 下跌；長期 Pe 下降，SRAS 下移，Y 回 Ybar。</p>
+          </article>
+
+          <article class="model-card">
+            <h3>Mundell-Fleming 浮動貨幣擴張</h3>
+            <svg viewBox="0 0 320 220" role="img" aria-label="Mundell-Fleming 圖">
+              <line class="axis" x1="44" y1="178" x2="292" y2="178"/>
+              <line class="axis" x1="44" y1="178" x2="44" y2="30"/>
+              <text x="287" y="201">Y</text><text x="20" y="38">e</text>
+              <line class="curve blue" x1="132" y1="40" x2="132" y2="178"/>
+              <line class="curve blue dashed" x1="204" y1="40" x2="204" y2="178"/>
+              <path class="curve amber" d="M65 55 C128 86 190 125 265 170"/>
+              <circle class="point" cx="132" cy="93" r="5"/>
+              <circle class="point" cx="204" cy="132" r="5"/>
+              <text x="101" y="35">LM1*</text><text x="210" y="35">LM2*</text><text x="243" y="171">IS*</text>
+            </svg>
+            <p>M 上升使 LM* 右移，e 下降，本幣貶值，NX 上升，Y 上升。浮動匯率下刺激短期產出的首選。</p>
+          </article>
+
+          <article class="model-card">
+            <h3>Phillips Curve</h3>
+            <svg viewBox="0 0 320 220" role="img" aria-label="Phillips curve 圖">
+              <line class="axis" x1="44" y1="178" x2="292" y2="178"/>
+              <line class="axis" x1="44" y1="178" x2="44" y2="30"/>
+              <text x="287" y="201">u</text><text x="20" y="38">π</text>
+              <line class="curve red thin" x1="170" y1="40" x2="170" y2="178"/>
+              <path class="curve amber" d="M69 55 C132 88 191 122 263 166"/>
+              <path class="curve amber dashed" d="M69 30 C132 63 191 97 263 141"/>
+              <text x="176" y="47">un</text>
+              <text x="216" y="159">SRPC1</text><text x="214" y="127">SRPC2</text>
+            </svg>
+            <p>πe 或供給衝擊上升會讓 Phillips curve 上移。可信反通膨政策的關鍵是壓低 πe。</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ③ POLICY MATRIX -->
+      <section class="section" id="matrix" aria-labelledby="matrix-title">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">Policy Matrix</p>
+            <h2 id="matrix-title">Mundell-Fleming 政策矩陣</h2>
+          </div>
+          <span class="section-hint">先確認匯率制度，再判斷政策方向</span>
+        </div>
+        <div class="matrix-tools">
+          <button class="pill active" data-regime="floating" type="button">浮動匯率</button>
+          <button class="pill" data-regime="fixed" type="button">固定匯率</button>
+        </div>
+        <div class="policy-board" id="policyBoard"></div>
+      </section>
+
+      <!-- ④ SYNTHESIS MAP -->
+      <section class="section synthesis" id="synthesis" aria-labelledby="synthesis-title">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">Synthesis Map</p>
+            <h2 id="synthesis-title">衝擊分類整合地圖</h2>
+          </div>
+          <span class="section-hint">看到 CASE 先分類衝擊，再接模型鏈</span>
+        </div>
+        <div class="synthesis-hero">
+          <div>
+            <h3>考試不是考「第幾章」，而是考你能不能判斷衝擊類型。</h3>
+            <p>看到 CASE 先不要背新聞細節，先分類：需求、貨幣、供給、匯率風險、政策可信度。分類後就能自動接到曲線移動、短長期結果、選擇題方向與計算公式。</p>
+          </div>
+          <div class="synthesis-rule">
+            <span>CASE 解題四步</span>
+            <strong>Shock → Curve → Outcome → Policy</strong>
+          </div>
+        </div>
+        <div class="synthesis-grid">
+          <article class="synthesis-card demand">
+            <p class="eyebrow">Demand / IS / AD</p>
+            <h3>需求面衝擊</h3>
+            <p>消費、投資、政府支出、出口需求變動。先進 IS-LM，再接 AD-AS。</p>
+            <div class="chain">IS 右/左移 → Y,r 變動 → AD 右/左移 → 長期 P/Pe 調整</div>
+            <ul>
+              <li><strong>章節：</strong>CH10 Keynesian Cross、CH11 IS-LM、CH9 AD-AS</li>
+              <li><strong>個案：</strong>W11 AI 景氣紅燈、W13 中國財政貨幣刺激</li>
+              <li><strong>題型：</strong>乘數計算、IS-LM 圖、政策組合作答</li>
+            </ul>
+          </article>
+          <article class="synthesis-card money">
+            <p class="eyebrow">Money / LM / AD</p>
+            <h3>貨幣與支付衝擊</h3>
+            <p>貨幣供給、支付效率、穩定幣、行動支付都要問：是 M 變了，還是 L(r,Y) 變了？</p>
+            <div class="chain">M↑ 或貨幣需求↓ → LM 右移 → r↓,Y↑ → AD 右移</div>
+            <ul>
+              <li><strong>章節：</strong>CH10 Liquidity Preference、CH11 AD 推導</li>
+              <li><strong>個案：</strong>W12 M2 創高、W12 穩定幣、2020 行動支付題</li>
+              <li><strong>題型：</strong>MV=PY、money demand 方程式、LM 方向判斷</li>
+            </ul>
+          </article>
+          <article class="synthesis-card supply">
+            <p class="eyebrow">Supply / SRAS / Phillips</p>
+            <h3>供給面與通膨衝擊</h3>
+            <p>油價、戰爭、能源成本是最典型供給衝擊，要同時接 AD-AS 與 Phillips curve。</p>
+            <div class="chain">SRAS 上移 / ν↑ → P,π↑ 且 Y↓ → 央行面臨取捨</div>
+            <ul>
+              <li><strong>章節：</strong>CH9 Supply Shock、CH13 SRAS / Phillips</li>
+              <li><strong>個案：</strong>W13 美伊戰爭、W15 家庭通膨壓力</li>
+              <li><strong>題型：</strong>停滯性通膨判斷、Phillips 計算、犧牲率</li>
+            </ul>
+          </article>
+          <article class="synthesis-card fx">
+            <p class="eyebrow">Open Economy / Risk Premium</p>
+            <h3>匯率與資本流動衝擊</h3>
+            <p>看到新興市場貨幣貶值、外資流出、美元利率上升，就接 Mundell-Fleming 的 θ。</p>
+            <div class="chain">θ↑ 或 r*↑ → 資本外流/本幣貶值 → 進口通膨與產出壓力</div>
+            <ul>
+              <li><strong>章節：</strong>CH12 Mundell-Fleming、Impossible Trinity</li>
+              <li><strong>個案：</strong>W14 印度盧比、W14 土耳其里拉、W15 美債殖利率</li>
+              <li><strong>題型：</strong>r=r*+θ、匯率貶值幅度、浮動/固定政策矩陣</li>
+            </ul>
+          </article>
+          <article class="synthesis-card credibility">
+            <p class="eyebrow">Credibility / Expectations</p>
+            <h3>政策可信度與預期</h3>
+            <p>央行獨立性、Fed 溝通、平均通膨目標都不是純新聞，是 πe 與犧牲率問題。</p>
+            <div class="chain">可信政策 → πe↓ → Phillips curve 下移 → disinflation 成本下降</div>
+            <ul>
+              <li><strong>章節：</strong>CH13 Expectations、Sacrifice Ratio、CH10 Fed</li>
+              <li><strong>個案：</strong>W11 Fed 分歧、W13 Fed 溝通改革、W14 土耳其</li>
+              <li><strong>題型：</strong>短期/長期利率、犧牲率、平均 2% 通膨目標</li>
+            </ul>
+          </article>
+          <article class="synthesis-card growth">
+            <p class="eyebrow">Long Run / Solow</p>
+            <h3>長期副作用與成長</h3>
+            <p>短期政策能救 Y，但長期會回到儲蓄、資本累積、自然產出與通膨預期。</p>
+            <div class="chain">短期刺激 → 赤字/通膨/債務 → 儲蓄與資本累積或 πe 改變</div>
+            <ul>
+              <li><strong>章節：</strong>CH8 Solow、CH9 長短期、CH13 Natural Rate</li>
+              <li><strong>個案：</strong>W13 中國債務刺激、W15 美債大量發行</li>
+              <li><strong>題型：</strong>Solow 穩態、長期副作用、政策評價題</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- ⑤ CASE STUDIES -->
+      <section class="section" id="cases" aria-labelledby="cases-title">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">Case Radar · W11–W15</p>
+            <h2 id="cases-title">個案解析</h2>
+          </div>
+          <span class="section-hint">每張卡有三個頁籤：重點 / 模型 / 考法</span>
+        </div>
+        <div class="case-method">
+          <span>① 判斷衝擊來源</span>
+          <span>② 找出曲線移動</span>
+          <span>③ 分短期與長期</span>
+          <span>④ 寫政策取捨</span>
+        </div>
+        <div class="case-filters" id="caseFilters"></div>
+        <div class="case-grid" id="caseGrid"></div>
+      </section>
+
+      <!-- ⑥ ASSIGNMENT -->
+      <section class="section" id="assignment" aria-labelledby="assignment-title">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">Assignment 3</p>
+            <h2 id="assignment-title">逐題解析與答案</h2>
+          </div>
+        </div>
+        <div class="assignment-summary">
+          <div>
+            <h3>答案速查</h3>
+            <p id="assignmentAnswerKey">1A · 2C · 3C · 4A · 5A · 6B · 7B · 8B · 9C · 10D · 11A · 12A · 13B · 14A · 15C · 16A · 17A · 18B · 19B · 20=50 · 21=6</p>
+          </div>
+          <a class="button primary" href="../outputs/Assignment_3_逐題解析.md">開啟完整解析</a>
+        </div>
+        <div class="assignment-tools">
+          <button class="pill active" data-assignment-filter="All" type="button">全部</button>
+          <button class="pill" data-assignment-filter="IS-LM" type="button">IS-LM</button>
+          <button class="pill" data-assignment-filter="Mundell-Fleming" type="button">開放經濟</button>
+          <button class="pill" data-assignment-filter="Calculation" type="button">計算</button>
+          <button class="pill" data-assignment-filter="Concept" type="button">觀念</button>
+        </div>
+        <div class="assignment-grid" id="assignmentGrid"></div>
+      </section>
+
+      <!-- ⑦ EXAM DRILL -->
+      <section class="section drill" id="drill" aria-labelledby="drill-title">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">Exam Drill</p>
+            <h2 id="drill-title">考古題翻卡練習</h2>
+          </div>
+          <span class="section-hint">← → 換題 · 空白鍵顯示/隱藏答案 · / 搜尋</span>
+        </div>
+        <div class="drill-shell">
+          <div class="card-filters" id="cardFilters" aria-label="考題類型"></div>
+          <div class="flashcard" id="flashcard">
+            <div class="flashcard-top">
+              <span id="cardTag">2022 Q3</span>
+              <span id="cardCount">1 / 8</span>
+            </div>
+            <h3 id="cardQuestion"></h3>
+            <div class="answer" id="cardAnswer"></div>
+          </div>
+          <div class="drill-actions">
+            <button class="button ghost" id="prevCard" type="button">← 上一題</button>
+            <button class="button primary" id="toggleAnswer" type="button">顯示答案</button>
+            <button class="button ghost" id="markMastered" type="button">標記熟練</button>
+            <button class="button ghost" id="nextCard" type="button">下一題 →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ⑧ 48H SPRINT -->
+      <section class="section" id="sprint" aria-labelledby="sprint-title">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">48H Sprint</p>
+            <h2 id="sprint-title">最後 48 小時 Checklist</h2>
+          </div>
+        </div>
+        <div class="sprint-layout">
+          <div class="progress-ring" aria-label="完成進度">
+            <span id="progressNumber">0%</span>
+            <small>ready</small>
+          </div>
+          <div class="checklist" id="checklist"></div>
+        </div>
+      </section>
+
+      <!-- ⑨ SEARCH (utility – placed last) -->
+      <section class="section command-center" id="search" aria-labelledby="search-title">
+        <div class="section-title">
+          <div>
+            <p class="eyebrow">Command Center</p>
+            <h2 id="search-title">快速搜尋與弱點定位</h2>
+          </div>
+        </div>
+        <div class="command-grid">
+          <div class="search-console">
+            <label for="globalSearch">搜尋模型、CASE、考古題</label>
+            <div class="search-row">
+              <input id="globalSearch" type="search" placeholder="IS-LM、通膨、匯率、犧牲率..." autocomplete="off"/>
+              <span id="searchCount" aria-live="polite">輸入 2 個字開始搜尋</span>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+          </div>
+          <aside class="weakness-board" aria-label="弱點雷達">
+            <h3>弱點雷達</h3>
+            <div class="weak-row danger"><span>最常失分</span><strong>長短期沒分開</strong></div>
+            <div class="weak-row warn"><span>高風險</span><strong>匯率 e 方向</strong></div>
+            <div class="weak-row safe"><span>穩拿分</span><strong>乘數與犧牲率</strong></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section source-panel" aria-labelledby="source-title">
+        <div class="section-title">
+          <div><p class="eyebrow">Source Notes</p><h2 id="source-title">原始整理檔</h2></div>
+        </div>
+        <div class="source-links">
+          <a href="../outputs/總經期末總整理_CH9-13_CASE.md">完整總整理</a>
+          <a href="../outputs/考古題_Assignment_解答框架.md">考古題與 Assignment</a>
+          <a href="../outputs/總經期末考前速查表.md">考前速查表</a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Formula Drawer -->
+    <aside class="formula-drawer" id="formulaDrawer" aria-hidden="true">
+      <div class="drawer-card">
+        <button class="drawer-close" id="closeFormula" type="button" aria-label="關閉公式抽屜">×</button>
+        <p class="eyebrow">Formula Drawer</p>
+        <h2>考前公式抽屜</h2>
+        <div class="formula-grid" id="formulaGrid"></div>
+      </div>
+    </aside>
+
+    <footer class="footer">
+      <p>總體經濟學期末備考 · CH9–13 · 114-2 學期 · 黃怡侯教授課程</p>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
